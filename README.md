@@ -78,8 +78,7 @@ print("\nPredictions:\n",Y_pred[:5]) #print first 5 predictions
 ```
 
 ## Output:
-![the Logistic Regression Model to Predict the Placement Status of Student](sam.png)
-
+![out](https://github.com/user-attachments/assets/36e5320d-d300-450b-80d5-b91d7411b990)
 
 ## Result:
 Thus the program to implement the the Logistic Regression Model to Predict the Placement Status of Student is written and verified using python programming.
