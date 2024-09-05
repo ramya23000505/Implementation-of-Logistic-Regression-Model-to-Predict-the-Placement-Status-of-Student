@@ -9,13 +9,19 @@ To write a program to implement the the Logistic Regression Model to Predict the
 
 ## Algorithm
 ## STEP 1:
-Import the required packages and print the present data.
+start the program
 ## STEP 2:
-Find the null and duplicate values.
+Load and preprocess the dataset: drop irrelevant columns, handle missing values, and encode categorical variables using LabelEncoder.
 ## STEP 3:
-Using logistic regression find the predicted values of accuracy , confusion matrices.
+Split the data into training and test sets using train_test_split.
 ## STEP 4:
-Display the results.
+Create and fit a logistic regression model to the training data.
+## STEP 5:
+Predict the target variable on the test set and evaluate performance using accuracy, confusion matrix, and classification report.
+## STEP 6:
+Display the confusion matrix using metrics.ConfusionMatrixDisplay and plot the results.
+## STEP 7:
+End the program
 ## Program:
 ```
 /*
