@@ -29,62 +29,65 @@ Program to implement the the Logistic Regression Model to Predict the Placement 
 Developed by: RAMYA R
 RegisterNumber: 212223230169
 
-import numpy as np
-from sklearn.datasets import fetch_california_housing
-from sklearn.linear_model import SGDRegressor
-from sklearn.multioutput import MultiOutputRegressor
+import pandas as pd
+data=pd.read_csv("C:/Users/admin/Downloads/Placement_Data.csv")
+data.head()
+
+data1=data.copy()
+data1=data1.drop(["sl_no","salary"],axis=1)
+data1.head()
+
+data1.isnull()
+
+data1.duplicated().sum()
+
+from sklearn.preprocessing import LabelEncoder
+le=LabelEncoder()
+data1["gender"]=le.fit_transform(data1["gender"])
+data1["ssc_b"]=le.fit_transform(data1["ssc_b"])
+data1["hsc_b"]=le.fit_transform(data1["hsc_b"])
+data1["hsc_s"]=le.fit_transform(data1["hsc_s"])
+data1["degree_t"]=le.fit_transform(data1["degree_t"])
+data1["workex"]=le.fit_transform(data1["workex"])
+data1["specialisation"]=le.fit_transform(data1["specialisation"])
+data1["status"]=le.fit_transform(data1["status"])
+data1
+
+x=data1.iloc[:,:-1]
+x
+
+y=data1["status"]
+y
+
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-from sklearn.preprocessing import StandardScaler
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=0)
 
-#load the california housing dataset
-data=fetch_california_housing()
+from sklearn.linear_model import LogisticRegression
+lr=LogisticRegression(solver="liblinear") #libraryfor large linear classificiation
+lr.fit(x_train,y_train)
+y_pred=lr.predict(x_test)
+y_pred
 
-#use the first 3 feature as inputs
-X=data.data[:,:3] #features: 'MedInc' , 'HouseAge' , 'AveRooms'
+from sklearn.metrics import accuracy_score
+accuracy=accuracy_score(y_test,y_pred)
+accuracy
 
-#use 'MedHouseVal' and 'AveOccup' as output variables
-Y=np.column_stack((data.target, data.data[:,6])) #targets: 'MedHouseVal' , 'AveOccup'
+from sklearn.metrics import classification_report
+classification_report1=classification_report(y_test,y_pred)
+print(classification_report1)
 
-#split the data into training and testing sets 
-X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size=0.2, random_state=42)
+lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
 
-#scale the features and target variables
-scaler_X = StandardScaler()
-scaler_Y = StandardScaler()
-
-X_train = scaler_X.fit_transform(X_train)
-X_test = scaler_X.transform(X_test)
-Y_train = scaler_Y.fit_transform(Y_train)
-Y_test = scaler_Y.transform(Y_test)
-
-#initialize the SGDRegressor
-sgd = SGDRegressor(max_iter=1000, tol=1e-3)
-
-#use multioutputregressor to handle multiple output variables
-multi_output_sgd = MultiOutputRegressor(sgd)
-
-#train the model
-multi_output_sgd.fit(X_train,Y_train)
-
-#predict on the test data
-Y_pred = multi_output_sgd.predict(X_test)
-
-#inverse transform the predictions to get them back to the original scale
-Y_pred = scaler_Y.inverse_transform(Y_pred)
-Y_test = scaler_Y.inverse_transform(Y_test)
-
-#evaluate the model using mean squared error
-mse = mean_squared_error(Y_test, Y_pred)
-print("Mean Squared Error:", mse)
-
-#optionally, print some predictions
-print("\nPredictions:\n",Y_pred[:5]) #print first 5 predictions 
 */
 ```
 
 ## Output:
-![out](https://github.com/user-attachments/assets/36e5320d-d300-450b-80d5-b91d7411b990)
+![Screenshot 2024-09-05 094730](https://github.com/user-attachments/assets/cc37b616-2db3-420f-8e36-7f8326b0b157)
+
+![Screenshot 2024-09-05 094738](https://github.com/user-attachments/assets/5d61b80f-cf7a-43b7-bcd4-82b0cb1b76bb)
+
+![Screenshot 2024-09-05 094832](https://github.com/user-attachments/assets/5def2ad7-11c8-40fe-9a38-11a8f582c22c)
+
 
 ## Result:
 Thus the program to implement the the Logistic Regression Model to Predict the Placement Status of Student is written and verified using python programming.
