@@ -8,20 +8,20 @@ To write a program to implement the the Logistic Regression Model to Predict the
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-## STEP 1:
-start the program
-## STEP 2:
-Load and preprocess the dataset: drop irrelevant columns, handle missing values, and encode categorical variables using LabelEncoder.
-## STEP 3:
-Split the data into training and test sets using train_test_split.
-## STEP 4:
-Create and fit a logistic regression model to the training data.
-## STEP 5:
-Predict the target variable on the test set and evaluate performance using accuracy, confusion matrix, and classification report.
-## STEP 6:
-Display the confusion matrix using metrics.ConfusionMatrixDisplay and plot the results.
-## STEP 7:
-End the program
+Step 1: start the program
+
+Step 2: Load and preprocess the dataset: drop irrelevant columns, handle missing values, and encode categorical variables using LabelEncoder.
+
+Step 3: Split the data into training and test sets using train_test_split.
+
+Step 4: Create and fit a logistic regression model to the training data.
+
+Step 5: Predict the target variable on the test set and evaluate performance using accuracy, confusion matrix, and classification report.
+
+Step 6:Display the confusion matrix using metrics.ConfusionMatrixDisplay and plot the results.
+
+Step 7:End the program.
+
 ## Program:
 ```
 /*
@@ -82,8 +82,9 @@ lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
 ```
 
 ## Output:
+### Accuracy:
 ![Screenshot 2024-09-05 094730](https://github.com/user-attachments/assets/cc37b616-2db3-420f-8e36-7f8326b0b157)
-
+### Prediction:
 ![Screenshot 2024-09-05 094738](https://github.com/user-attachments/assets/5d61b80f-cf7a-43b7-bcd4-82b0cb1b76bb)
 
 ![Screenshot 2024-09-05 094832](https://github.com/user-attachments/assets/5def2ad7-11c8-40fe-9a38-11a8f582c22c)
